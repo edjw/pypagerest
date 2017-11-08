@@ -1,6 +1,6 @@
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera. Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 
-import requests
+import requests # When I make this an actual package, I'll make requests a dependency
 
 def get_pr_basic(pr_token, url):
     """Grabs site’s title, description, logo, favicons, canonical URL, status code, and Twitter handle. https://page.rest/#basic"""
