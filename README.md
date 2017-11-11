@@ -4,9 +4,9 @@ A Python wrapper for [https://page.rest](Page.REST)
 
 Page.REST is an HTTP API created by [Lakshan Perera](https://www.laktek.com) that can extract content from any web page as JSON.
 
-## Notes
+## Scraping multiple pieces of data
 
-If you want to scrape the CSS selectors and oEmbed/OpenGraph/Response Header content at the same time, then use the `get_pr_selector` function. <!-- TODO! -->
+If you want to scrape the CSS selectors and oEmbed/OpenGraph/Response Header content at the same time, then use the `get_pr_selector` function. TODO! <!-- TODO! -->
 
 ## To-Do
 
