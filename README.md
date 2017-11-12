@@ -1,6 +1,6 @@
 # pypagerest
 
-A Python wrapper for [https://page.rest](Page.REST)
+A Python wrapper for [Page.REST](https://page.rest)
 
 Page.REST is an HTTP API created by [Lakshan Perera](https://www.laktek.com) that can extract content from any web page as JSON.
 

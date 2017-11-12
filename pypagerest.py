@@ -1,7 +1,7 @@
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera.
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 
-import requests # When I make this an actual package, I'll make requests a dependency
+import requests
 
 def process_selectors(selectors):
     """Takes the CSS selectors given and prepares them to be appended to urls in other functions."""
@@ -11,13 +11,14 @@ def process_selectors(selectors):
     all_selectors = "".join(all_selectors)
     return all_selectors
 
-def get_pr_basic(pr_token, url):
-    """Grabs site's title, description, logo, favicons, canonical URL, status code, and Twitter handle.
+def get_pr_basic(pr_token, urls):
+    """Grabs site title, description, logo, favicons, canonical URL, status code, and Twitter handle.
     https://page.rest/#basic"""
 
-    response_pr_basic = requests.get("https://page.rest/fetch?token=" + pr_token + "&url=" + url)
-    response_pr_basic = response_pr_basic.json()
-    return response_pr_basic
+    for url in urls:
+        response_pr_basic = requests.get("https://page.rest/fetch?token=" + pr_token + "&url=" + url)
+        response_pr_basic = response_pr_basic.json()
+        return response_pr_basic
 
 def get_pr_selector(pr_token, url, selectors):
     """Uses CSS selectors to retrieve content from matching elements. You can use up to 10 selector queries.
