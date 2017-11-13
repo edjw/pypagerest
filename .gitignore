@@ -1,4 +1,5 @@
 testing_pypagerest.py
+.gitignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
