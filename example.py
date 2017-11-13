@@ -5,9 +5,10 @@ import pypagerest
 # Insert your Page.rest API Key here
 pr_token = "$Page.Rest_API_KEY"
 
-# Insert urls here in quotes. If more than one urls then separate with commas
+# Insert urls here inside square brackets in quotes. If more than one urls then separate with commas. Use square brackets even if there's only one url.
+
 urls = ["https://domain.tld"]
-#urls = ["https://domain.tld", "https://anotherdomain.tld"]
+# urls = ["https://domain.tld", "https://anotherdomain.tld"]
 
 # To extract content using CSS selectors, put selectors inside quotes inside square brackets separated by commas
 selectors = [".class_one", ".class_two", "#id_one", "#id_two", "h2", "p"]
