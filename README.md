@@ -29,9 +29,7 @@ import pypagerest
 pr_token = "Page.Rest_Access_token"
 
 # Insert urls here inside square brackets in quotes.
-
 # If more than one url then separate with commas.
-
 # Use square brackets even if there's only one url. I'm going to fix this.
 
 urls = ["https://domain.tld"] # One URL
