@@ -1,7 +1,7 @@
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera.
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
-
-import json
+# -*- coding: utf-8 -*
+from json import dumps
 import requests
 
 def process_urls(pr_token, urls):
@@ -34,7 +34,7 @@ def process_headers(headers):
 def process_requests(all_responses, response):
     """Takes the result of the requests and packages them to be returned as output to the file calling pypagerest"""
     response = response.json()
-    response = json.dumps(response)
+    response = dumps(response)
     all_responses.append(response)
 
     if len(all_responses) == 1:
