@@ -28,7 +28,8 @@ import pypagerest
 # #Insert your Page.rest Access token here
 pr_token = "Page.Rest_Access_token"
 
-# Insert urls here inside square brackets in quotes. If more than one urls then separate with commas. Use square brackets even if there's only one url.
+# Insert urls here inside square brackets in quotes.
+# If more than one url then separate with commas. # Use square brackets even if there's only one url. I'm going to fix this.
 
 urls = ["https://domain.tld"] # One URL
 
@@ -39,7 +40,7 @@ urls = ["https://domain.tld", "https://anotherdomain.tld"] # More than one URL
 # If you want to extract content using CSS selectors, put the selectors inside square brackets like this
 selectors = [".class_one", ".class_two", "#id_one", "#id_two", "h2", "p"]
 
-# To extract HTTP response headers, put the response headers inside square brackets like this
+# If you want to extract HTTP response headers, put the response headers inside square brackets like this
 headers = ["X-Frame-Options", "X-XSS-Protection", "Content-Security-Policy"]
 ```
 
@@ -114,10 +115,10 @@ The json module is necessary because the json decoder in requests uses single qu
 I am new to Python and would appreciate any suggestions of how to improve pypagerest. If you want to contribute, please submit a pull request! :-)
 
 1. Fork this repository
-2. Create your feature branch `git checkout -b my-new-feature`
-3. Commit your changes `git commit -am 'Add some feature'`
-4. Push to the branch `git push origin my-new-feature`
-5. Create a new Pull Request
+1. Create your feature branch `git checkout -b my-new-feature`
+1. Commit your changes `git commit -am 'Add some feature'`
+1. Push to the branch `git push origin my-new-feature`
+1. Create a new Pull Request
 
 
 ## To-Do
