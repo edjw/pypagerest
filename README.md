@@ -30,7 +30,7 @@ pr_token = "Page.Rest_Access_token"
 
 # Insert urls here inside square brackets in quotes.
 
-# If more than one url then separate with commas. 
+# If more than one url then separate with commas.
 
 # Use square brackets even if there's only one url. I'm going to fix this.
 
@@ -122,7 +122,6 @@ I am new to Python and would appreciate any suggestions of how to improve pypage
 1. Commit your changes `git commit -am 'Add some feature'`
 1. Push to the branch `git push origin my-new-feature`
 1. Create a new Pull Request
-
 
 ## To-Do
 
