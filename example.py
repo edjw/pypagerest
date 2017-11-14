@@ -3,7 +3,7 @@
 import pypagerest
 
 # Insert your Page.rest API Key here
-pr_token = "$Page.Rest_Access_token"
+pr_token = "Page.Rest_Access_token"
 
 # Insert urls here inside square brackets in quotes. If more than one urls then separate with commas. Use square brackets even if there's only one url.
 
