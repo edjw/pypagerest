@@ -1,6 +1,7 @@
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera.
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 
+import json
 import requests
 
 def process_urls(pr_token, urls):
@@ -30,17 +31,27 @@ def process_headers(headers):
         all_headers = all_headers + "&header=" + header
     return all_headers
 
+def process_requests(all_responses, response):
+    """Takes the result of the requests and packages them to be returned as output to the file calling pypagerest"""
+    response = response.json()
+    response = json.dumps(response)
+    all_responses.append(response)
+
+    if len(all_responses) == 1:
+        return all_responses[0]
+    return all_responses
+
 def get_pr_basic(pr_token, urls):
     """Grabs site title, description, logo, favicons, canonical URL, status code, and Twitter handle.
     https://page.rest/#basic"""
 
     pr_urls = process_urls(pr_token, urls)
-    all_responses_basic = ""
+    all_responses = []
+
     for pr_url in pr_urls:
-        response_pr_basic = requests.get(pr_url)
-        response_pr_basic = response_pr_basic.text
-        all_responses_basic = all_responses_basic + response_pr_basic
-    return all_responses_basic
+        response = requests.get(pr_url)
+        response = process_requests(all_responses, response)
+    return response
 
 def get_pr_selector(pr_token, urls, selectors):
     """Uses CSS selectors to retrieve content from matching elements. You can use up to 10 selector queries.
@@ -48,12 +59,12 @@ def get_pr_selector(pr_token, urls, selectors):
 
     pr_urls = process_urls(pr_token, urls)
     all_selectors = process_selectors(selectors)
-    all_responses_selector = ""
+    all_responses = []
+
     for pr_url in pr_urls:
-        response_pr_selector = requests.get(pr_url + all_selectors)
-        response_pr_selector = response_pr_selector.text
-        all_responses_selector = all_responses_selector + response_pr_selector
-    return all_responses_selector
+        response = requests.get(pr_url + all_selectors)
+        response = process_requests(all_responses, response)
+    return response
 
 def get_pr_prerender(pr_token, urls, selectors):
     """Extracts content from pages that render on client-side using JavaScript.
@@ -61,36 +72,34 @@ def get_pr_prerender(pr_token, urls, selectors):
 
     pr_urls = process_urls(pr_token, urls)
     all_selectors = process_selectors(selectors)
-    all_responses_prerender = ""
+    all_responses = []
     for pr_url in pr_urls:
-        response_pr_prerender = requests.get(pr_url + "&prerender=1" + all_selectors)
-        response_pr_prerender = response_pr_prerender.text
-        all_responses_prerender = all_responses_prerender + response_pr_prerender
-    return all_responses_prerender
+        response = requests.get(pr_url + "&prerender=1" + all_selectors)
+        response = process_requests(all_responses, response)
+    return response
 
 def get_pr_oembed(pr_token, urls):
     """Gets the oEmbed content for the page as part of the response (only if available).
     https://page.rest/#embed-content"""
 
     pr_urls = process_urls(pr_token, urls)
-    all_responses_oembed = ""
+    all_responses = []
     for pr_url in pr_urls:
-        response_pr_oembed = requests.get(pr_url + "&embed=1")
-        response_pr_oembed = response_pr_oembed.text
-        all_responses_oembed = all_responses_oembed + response_pr_oembed
-    return all_responses_oembed
+        response = requests.get(pr_url + "&embed=1")
+        response = process_requests(all_responses, response)
+    return response
 
 def get_pr_opengraph(pr_token, urls):
     """Gets the OpenGraph content for the page as part of the response (only if available).
     https://page.rest/#open-graph"""
 
     pr_urls = process_urls(pr_token, urls)
-    all_responses_opengraph = ""
+    all_responses = []
+
     for pr_url in pr_urls:
-        response_pr_opengraph = requests.get(pr_url + "&og=1")
-        response_pr_opengraph = response_pr_opengraph.text
-        all_responses_opengraph = all_responses_opengraph + response_pr_opengraph
-    return all_responses_opengraph
+        response = requests.get(pr_url + "&og=1")
+        response = process_requests(all_responses, response)
+    return response
 
 def get_pr_responseheaders(pr_token, urls, headers):
     """Gets any HTTP headers defined in the response.
@@ -98,10 +107,9 @@ def get_pr_responseheaders(pr_token, urls, headers):
 
     pr_urls = process_urls(pr_token, urls)
     all_headers = process_headers(headers)
-    all_responses_responseheaders = ""
+    all_responses = []
 
     for pr_url in pr_urls:
-        response_pr_responseheaders = requests.get(pr_url + all_headers)
-        response_pr_responseheaders = response_pr_responseheaders.text
-        all_responses_responseheaders = all_responses_responseheaders + response_pr_responseheaders
-    return all_responses_responseheaders
+        response = requests.get(pr_url + all_headers)
+        response = process_requests(all_responses, response)
+    return response
