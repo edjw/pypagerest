@@ -11,8 +11,7 @@ def process_urls(pr_token, urls):
 
     if type(urls) == str:
         urls = "https://page.rest/fetch?token=" + urls
-        pr_urls = urls
-    return pr_urls
+    return urls
     
     elif type(urls) == list:
         for url in urls:
