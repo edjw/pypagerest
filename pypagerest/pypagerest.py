@@ -9,13 +9,18 @@ def process_urls(pr_token, urls):
     urls_processed = []
     pr_urls = []
 
-    for url in urls:
-        urls_processed.append("&url=" + url)
+    if type(urls) == str:
+        urls = "https://page.rest/fetch?token=" + urls
+        pr_urls = urls
+    return pr_urls
+    
+    elif type(urls) == list:
+        for url in urls:
+            urls_processed.append("&url=" + url)
 
-    for url_processed in urls_processed:
-        url_index = urls_processed.index(url_processed)
-        pr_urls.append("https://page.rest/fetch?token=" + pr_token + urls_processed[url_index])
-
+        for url_processed in urls_processed:
+            url_index = urls_processed.index(url_processed)
+            pr_urls.append("https://page.rest/fetch?token=" + pr_token + urls_processed[url_index])
     return pr_urls
 
 def process_selectors(selectors):
