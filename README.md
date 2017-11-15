@@ -10,10 +10,12 @@ This wrapper makes it easier to access Page.REST using Python. It also make it e
 
 You'll need to buy an [access token for Page.REST](https://page.rest/#payment-block). Tokens cost $5 and are valid for 365 days. There's a daily cap of 100,000 requests per token.
 
-pypagerest uses the ['requests' library](https://requests.readthedocs.io/en/master/) to use Page.REST. Install requests before using pypagerest.
+## Installation
+
+The package isn't on PyPI yet but you can install pypagerest using `pip3` with this command. This will install the live code from Github.
 
 ```python
-pip3 install requests
+pip3 install git+https://github.com/edjw/pypagerest
 ```
 
 ## Using pypagerest
