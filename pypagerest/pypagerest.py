@@ -1,3 +1,4 @@
+
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera.
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 # -*- coding: utf-8 -*
@@ -9,17 +10,13 @@ def process_urls(pr_token, urls):
     urls_processed = []
     pr_urls = []
 
-    if type(urls) == str:
-        urls = "https://page.rest/fetch?token=" + urls
-    return urls
-    
-    elif type(urls) == list:
-        for url in urls:
-            urls_processed.append("&url=" + url)
+    for url in urls:
+        urls_processed.append("&url=" + url)
 
-        for url_processed in urls_processed:
-            url_index = urls_processed.index(url_processed)
-            pr_urls.append("https://page.rest/fetch?token=" + pr_token + urls_processed[url_index])
+    for url_processed in urls_processed:
+        url_index = urls_processed.index(url_processed)
+        pr_urls.append("https://page.rest/fetch?token=" + pr_token + urls_processed[url_index])
+
     return pr_urls
 
 def process_selectors(selectors):
