@@ -14,5 +14,5 @@ setup(
     version='0.1',
     license='MIT',
     packages=['pypagerest'],
-    install_requires=['request>2.18.0']
+    install_requires=['requests>2.18.0']
 )
