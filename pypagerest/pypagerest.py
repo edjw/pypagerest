@@ -8,6 +8,7 @@ def process_urls(pr_token, urls):
     """Takes the urls given and prepares them to be used in other functions."""
     urls_processed = []
     pr_urls = []
+
     for url in urls:
         urls_processed.append("&url=" + url)
 
