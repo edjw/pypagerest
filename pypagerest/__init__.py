@@ -3,7 +3,7 @@
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 # -*- coding: utf-8 -*
 from json import dumps
-import requests
+from requests import Session
 
 pr_parameters = {
     'url': None,
@@ -22,7 +22,7 @@ def do_requests(pr_token, urls):
     """
     all_responses = []
 
-    with requests.Session() as s:
+    with Session() as s:
         pr_parameters['token'] = pr_token
 
         for url in urls:
