@@ -20,5 +20,4 @@ setup(
     packages=['pypagerest'],
     python_requires=['>=3.4'],
     install_requires=['requests>2.18'],
-    zip_safe=False
-)
+    zip_safe=False)
