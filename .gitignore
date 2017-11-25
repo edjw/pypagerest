@@ -1,5 +1,7 @@
 testing_pypagerest.py
-json_tester.json
+.vscode
+.cache
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
