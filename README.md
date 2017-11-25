@@ -10,6 +10,8 @@ This wrapper makes it easier to access Page.REST using Python. It also make it e
 
 You'll need to buy an [access token for Page.REST](https://page.rest/#payment-block). Tokens cost $5 and are valid for 365 days. There's a daily cap of 100,000 requests per token.
 
+pypagerest won't work with versions of Python lower than Python 3.4
+
 ## Installation
 
 The package isn't on PyPI yet but you can install pypagerest using `pipev` (for a relatively straightforward virtual environments setup) or alternatively with `pip3`. This will install the live code from Github. This code is not yet stable (though it's getting there!)
@@ -109,7 +111,7 @@ If you want to scrape the CSS selectors and oEmbed/OpenGraph/Response Header con
 
 If you request multiple URLs, the output is a Python list of the JSON responses from Page.REST.
 
- If you request only a single URL, the output is the JSON response from Page.REST not in a list. Let me know if you can think of a more useful way of returning the data for real-world use.
+If you request only a single URL, the output is the JSON response from Page.REST not in a list. Let me know if you can think of a more useful way of returning the data for real-world use.
 
 ## Notes
 
@@ -126,12 +128,3 @@ I am new to Python and would appreciate any suggestions of how to improve pypage
 1. Commit your changes `git commit -am 'Add some feature'`
 1. Push to the branch `git push origin my-new-feature`
 1. Create a new Pull Request
-
-## To-Do
-
-* Document how to do one function only on one set of urls, selectors, headers
-* Document how to do more than one function on one set of urls, selectors, headers
-* Document how to do more than one function on more than one set of urls, selectors, headers
-* Document multiple urls with different selectors for each one
-* Annotate pypagerest
-* Enable oEmbed/OpenGraph/Response header content to be requested in selector function
