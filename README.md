@@ -12,7 +12,11 @@ You'll need to buy an [access token for Page.REST](https://page.rest/#payment-bl
 
 ## Installation
 
-The package isn't on PyPI yet but you can install pypagerest using `pip3` with this command. This will install the live code from Github. This code is not yet stable (though it's getting there!)
+The package isn't on PyPI yet but you can install pypagerest using `pipev` (for a relatively straightforward virtual environments setup or alternatively with `pip3`. This will install the live code from Github. This code is not yet stable (though it's getting there!)
+
+```python
+pipenv install git+https://github.com/edjw/pypagerest
+```
 
 ```python
 pip3 install git+https://github.com/edjw/pypagerest
