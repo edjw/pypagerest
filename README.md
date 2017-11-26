@@ -10,11 +10,11 @@ This wrapper makes it easier to access Page.REST using Python. It also make it e
 
 You'll need to buy an [access token for Page.REST](https://page.rest/#payment-block). Tokens cost $5 and are valid for 365 days. There's a daily cap of 100,000 requests per token.
 
-pypagerest won't work with versions of Python lower than Python 3.4
+Pypagerest won't work with versions of Python lower than Python 3.4.
 
 ## Installation
 
-The package isn't on PyPI yet but you can install pypagerest using `pipev` (for a relatively straightforward virtual environments setup) or alternatively with `pip`/`pip3`. This will install the live code from Github. This code is not yet stable (though it's getting there!)
+The package isn't on PyPI yet. You can install the live pypagerest code from Github using `pipev` (for a relatively straightforward virtual environments setup) or alternatively with `pip`/`pip3`.
 
 ```python
 pipenv install -e git+https://github.com/edjw/pypagerest#egg=pypagerest
@@ -29,7 +29,7 @@ pip3 install git+https://github.com/edjw/pypagerest
 
 ### Setup
 
-You have to set some variables in your file that imports pypagerest. Pypagerest will use these variables retrieve the data you want.
+You have to set some variables in your file that imports pypagerest. Pypagerest will use these variables to retrieve the data you want.
 
 ```python
 import pypagerest

@@ -1,5 +1,5 @@
-from setuptools import setup
 from sys import version_info
+from setuptools import setup
 
 if version_info < (3, 4):
     raise RuntimeError("This package requres Python 3.4+")
