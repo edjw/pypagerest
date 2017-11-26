@@ -1,8 +1,8 @@
-
 """ Python wrapper for Page.REST (https://page.rest) by Lakshan Perera.
 Page.REST is an HTTP API you can use to extract content from any web page as JSON."""
 # -*- coding: utf-8 -*
 from json import dumps
+from concurrent.futures import ThreadPoolExecutor
 from requests import Session
 
 pr_parameters = {
@@ -15,32 +15,32 @@ pr_parameters = {
     'header': None
 }
 
-def do_requests(pr_token, urls):
-    """
-    Iterates through the urls given, requests the information asked for,
-    processes response, returns response
-    """
-    all_responses = []
-
+def get_webpages(urls):
+    """Asynchronously gets the data from the webpages"""
     with Session() as s:
-        pr_parameters['token'] = pr_token
+        pr_parameters['url'] = urls
+        r = s.get('https://page.rest/fetch', params=pr_parameters)
+        return r
 
-        for url in urls:
-            pr_parameters['url'] = url
-            r = s.get('https://page.rest/fetch', params=pr_parameters)
+def do_requests(pr_token, urls):
+    """Starts the scraping and processes the responses"""
+    all_responses = []
+    pr_parameters['token'] = pr_token
+
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        for r in ex.map(get_webpages, urls):
             r = r.json()
             r = dumps(r)
             all_responses.append(r)
 
-        if len(all_responses) == 1:
-            return all_responses[0]
-        return all_responses
+    if len(all_responses) == 1:
+        return all_responses[0]
+    return all_responses
 
 def get_pr_basic(pr_token, urls):
     """Grabs site title, description, logo, favicons, canonical URL,
     status code, and Twitter handle.
     https://page.rest/#basic"""
-
     return do_requests(pr_token, urls)
 
 def get_pr_selector(pr_token, urls, selectors):
