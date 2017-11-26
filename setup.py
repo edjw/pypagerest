@@ -22,4 +22,4 @@ setup(
     zip_safe=False,
     python_requires=['>=3.4'],
     install_requires=['requests>=2.17.0']
-    )
+)
