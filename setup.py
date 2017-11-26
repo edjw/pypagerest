@@ -1,4 +1,8 @@
 from setuptools import setup
+from sys import version_info
+
+if version_info < (3, 4):
+    raise RuntimeError("This package requres Python 3.4+")
 
 setup(
     name='pypagerest',
@@ -16,7 +20,6 @@ setup(
     zip_safe=False
 )
 
-# # from sys import version_info
 
 # try:
 #     from setuptools import setup
