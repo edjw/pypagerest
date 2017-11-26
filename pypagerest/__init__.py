@@ -27,7 +27,7 @@ def do_requests(pr_token, urls):
     all_responses = []
     pr_parameters['token'] = pr_token
 
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=None) as ex:
         for r in ex.map(get_webpages, urls):
             r = r.json()
             r = dumps(r)

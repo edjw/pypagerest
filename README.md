@@ -10,7 +10,7 @@ This wrapper makes it easier to access Page.REST using Python. It also make it e
 
 You'll need to buy an [access token for Page.REST](https://page.rest/#payment-block). Tokens cost $5 and are valid for 365 days. There's a daily cap of 100,000 requests per token.
 
-Pypagerest won't work with versions of Python lower than Python 3.4.
+Pypagerest won't work with versions of Python lower than Python 3.5.
 
 ## Installation
 
