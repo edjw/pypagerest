@@ -14,13 +14,14 @@ pypagerest won't work with versions of Python lower than Python 3.4
 
 ## Installation
 
-The package isn't on PyPI yet but you can install pypagerest using `pipev` (for a relatively straightforward virtual environments setup) or alternatively with `pip3`. This will install the live code from Github. This code is not yet stable (though it's getting there!)
+The package isn't on PyPI yet but you can install pypagerest using `pipev` (for a relatively straightforward virtual environments setup) or alternatively with `pip`/`pip3`. This will install the live code from Github. This code is not yet stable (though it's getting there!)
 
 ```python
 pipenv install -e git+https://github.com/edjw/pypagerest#egg=pypagerest
 ```
 
 ```python
+pip install git+https://github.com/edjw/pypagerest
 pip3 install git+https://github.com/edjw/pypagerest
 ```
 
@@ -28,7 +29,7 @@ pip3 install git+https://github.com/edjw/pypagerest
 
 ### Setup
 
-You have to set some variables which pypagerest will use to retrieve the data you want.
+You have to set some variables in your file that imports pypagerest. Pypagerest will use these variables retrieve the data you want.
 
 ```python
 import pypagerest
@@ -47,13 +48,15 @@ urls = ["https://domain.tld"] # One URL
 urls = ["https://domain.tld", "https://anotherdomain.tld"] # More than one URL
 
 # If you want to extract content using CSS selectors, put the selectors inside square brackets like this
-selectors = [".class_one", ".class_two", "#id_one", "#id_two", "h2", "p"]
+selectors = [".class_one", ".class_two", "#id_one", "#id_two", "h1", "p"]
 
 # If you want to extract HTTP response headers, put the response headers inside square brackets like this
 headers = ["X-Frame-Options", "X-XSS-Protection", "Content-Security-Policy"]
 ```
 
 ### pypagerest functions
+
+Then call whichever of these functions you want to correspond with the functionality described on <https://page.rest>
 
 #### Basic
 
@@ -102,10 +105,6 @@ Get the OpenGraph content for the page as part of the response (only if availabl
 ```python
 pypagerest.get_pr_responseheaders(pr_token, urls, headers)
 ```
-
-<!-- ## Scraping multiple pieces of data
-
-If you want to scrape the CSS selectors and oEmbed/OpenGraph/Response Header content at the same time, then use the `get_pr_selector` function. TODO! -->
 
 ## Output
 
